@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 8px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    font-size: 48px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.restart {
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+}
