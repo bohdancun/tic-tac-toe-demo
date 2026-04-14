@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Diodrum';
+    src: url('./fonts/DiodrumCyrillic-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -5,7 +12,49 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Diodrum', sans-serif;
+}
+
+/* Use ONE spacing system everywhere */
+.start-screen,
+.game-screen,
+.game-over-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.start-screen-bottom-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 316px;
+    justify-content: space-between;
+}
+
+/* Remove default margins so gap controls spacing */
+.start-screen h1,
+.game-screen h1,
+.game-over-screen h1,
+.game-over-screen h2,
+.game-over-screen p,
+.status {
+    margin: 0;
+}
+
+/* Titles */
+.start-screen h1,
+.game-screen h1,
+.game-over-screen h1 {
+    width: 316px;
+    text-align: center;
+    font-size: 60px;
+    line-height: 1;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
 }
 
 .board {
@@ -13,31 +62,101 @@ body {
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     gap: 8px;
+    width: 316px;
+    justify-content: center;
 }
 
 .cell {
     width: 100px;
     height: 100px;
     font-size: 48px;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
     text-align: center;
+    border: 2px solid #b8b8b8;
+    border-radius: 14px;
+    font-family: 'Diodrum', sans-serif;
+    font-weight: 600;
+    color: #111111;
+    cursor: pointer;
+    background: #ffffff;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
 }
 
 .hidden {
     display: none;
 }
 
+/* Game over container uses SAME gap */
 .result {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
 }
 
-.restart {
-    padding: 12px 24px;
-    font-size: 18px;
+.start-button,
+.settings-button,
+.customise-button,
+.restart,
+.main-menu-button,
+.find-match-button,
+.in-game-menu-button {
+    display: block;
+    width: 316px;
+    padding: 14px 22px;
+    border: 2px solid #b8b8b8;
+    border-radius: 14px;
+    font-family: 'Diodrum', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #111111;
     cursor: pointer;
+    background: #ffffff;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    align-self: center;
+}
+
+.settings-button {
+    width: 236px;
+}
+
+.customise-button {
+    width: 68px;
+    height: 68px;
+    padding: 0;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-button:hover,
+.settings-button:hover,
+.customise-button:hover,
+.restart:hover,
+.main-menu-button:hover,
+.find-match-button:hover,
+.in-game-menu-button:hover,
+.cell:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10);
+    background-color: #fafafa;
+    border-color: #9f9f9f;
+}
+
+.start-button:active,
+.settings-button:active,
+.customise-button:active,
+.restart:active,
+.main-menu-button:active,
+.find-match-button:active,
+.in-game-menu-button:active,
+.cell:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    background-color: #f3f3f3;
 }
